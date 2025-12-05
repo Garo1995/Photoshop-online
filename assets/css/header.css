@@ -41,9 +41,43 @@ header{
 .menu-scroll a:hover{
     opacity: 0.7;
 }
+
+
+
+
+.header-dark .menu-scroll a{
+    opacity: 1;
+    color: #FFFFFF;
+
+}
+
+.btn-login{
+    transition: 0.3s;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 130%;
+    text-align: center;
+    color: #001E36;
+    background: unset;
+    white-space: nowrap;
+}
+.btn-login:hover{
+    color: #273E4B80;
+}
+
+.header-dark .btn-login{
+    color: #FFFFFF;
+}
+
+.header-dark .logo{
+    color: #FFFFFF;
+}
+
+
 .header-btn{
     gap: 20px;
 }
+
 .btn-reg {
     background: #001E36;
     height: 56px;

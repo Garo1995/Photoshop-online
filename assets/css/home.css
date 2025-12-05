@@ -39,19 +39,6 @@ p b{
     color: #001E36CC;
 }
 
-.btn-login{
-    transition: 0.3s;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 130%;
-    text-align: center;
-    color: #001E36;
-    background: unset;
-    white-space: nowrap;
-}
-.btn-login:hover{
-    color: #273E4B80;
-}
 
 
 
@@ -76,6 +63,7 @@ p b{
     font-weight: 600;
     font-size: 20px;
     line-height: 100%;
+    font-family: 'Manrope';
 }
 .btn:before{
     content: "";
@@ -108,10 +96,10 @@ p b{
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../img/banner-blur.png");
+    background-image: url("../img/banner-blur.webp");
     background-repeat: no-repeat;
     background-size: cover;
-
+    background-position: bottom;
 }
 
 
@@ -372,13 +360,17 @@ p b{
     cursor: pointer;
 
 }
-.questions-box{
-    border-radius: 40px;
+.questions-box {
+    border-radius: 50px;
     width: 100%;
     position: relative;
     border: 1px solid #FFFFFF4D;
+    transition: 0.3s;
 }
+.questions-box.active-box{
+    border-radius: 30px;
 
+}
 .questions-click h4{
     color: #F4F4F4;
 }
@@ -421,7 +413,7 @@ p b{
 
 
 .questions-text p{
-    color: #F4F4F4;
+    color: rgba(244, 244, 244, 0.70);
 }
 
 
@@ -922,7 +914,9 @@ footer .logo{
         font-size: 15px;
     }
 
-
+    .our-clients-photo img {
+        border-radius: 10px;
+    }
 
 
     #faq {

@@ -21,7 +21,6 @@ $(document).ready(function () {
 
 
 
-
 $(function () {
     let Accordion = function (el, multiple) {
         this.el = el || {};
@@ -32,25 +31,30 @@ $(function () {
 
     Accordion.prototype.dropdown = function (e) {
         let $el = e.data.el;
-        $this = $(this),
-            $next = $this.next();
-        $next.slideToggle();
-        if (!e.data.multiple) {
+        let $this = $(this);
+        let $next = $this.next();
+        let $parentBox = $this.closest('.questions-box');
 
+        $next.slideToggle();
+
+        if (!e.data.multiple) {
             $el.find('.submenu-faq').not($next).slideUp();
+            $el.find('.link').not($this).removeClass('open');
+            $el.find('.questions-box').not($parentBox).removeClass('active-box');
         }
+
         if (!$this.hasClass('open')) {
-            $('.link').each(function () {
-                $(this).removeClass('open')
-            })
-            $this.addClass('open')
+            $this.addClass('open');
+            $parentBox.addClass('active-box');
         } else {
-            $this.removeClass('open')
+            $this.removeClass('open');
+            $parentBox.removeClass('active-box');
         }
     }
 
     let accordion = new Accordion($('#accordion'), false);
 });
+
 
 
 $('.menu-scroll a').click(function() {
@@ -72,3 +76,35 @@ $('.menu-scroll a').click(function() {
 
 
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    const header = document.querySelector(".header");
+    const targets = document.querySelectorAll(".section-work");
+
+    if (!header || !targets.length) return;
+
+    function updateHeaderColor() {
+        const headerHeight = header.offsetHeight;
+        let isOverAnyBlock = false;
+
+        targets.forEach(target => {
+            const rect = target.getBoundingClientRect();
+
+            const isOverBlock = rect.top <= headerHeight && rect.bottom >= 0;
+
+            if (isOverBlock) {
+                isOverAnyBlock = true;
+            }
+        });
+
+        if (isOverAnyBlock) {
+            header.classList.add("header-dark");
+        } else {
+            header.classList.remove("header-dark");
+        }
+    }
+
+    window.addEventListener("scroll", updateHeaderColor, { passive: true });
+    window.addEventListener("resize", updateHeaderColor);
+    updateHeaderColor();
+});
