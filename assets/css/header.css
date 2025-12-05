@@ -73,6 +73,10 @@ header{
     color: #FFFFFF;
 }
 
+.header-dark .header-main {
+    background: #dbdada26;
+}
+
 
 .header-btn{
     gap: 20px;
@@ -189,6 +193,10 @@ header{
         width: 17px;
         height: 2px;
         transition: 0.3s;
+    }
+
+    .header-dark  .open-menu span{
+        background: #FFFFFF;
     }
 
     .menu-content {
